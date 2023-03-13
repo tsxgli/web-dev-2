@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-class Movie {
+  class Movie {
     private int $_id;
     private string $title;
     private string $director;

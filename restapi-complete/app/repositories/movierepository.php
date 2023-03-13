@@ -1,7 +1,6 @@
 <?php
 namespace Repositories;
-
-
+use Models\Movie;
 use PDO;
 use PDOException;
 use Repositories\Repository;
@@ -24,9 +23,8 @@ class MovieRepository extends Repository
             }
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Models\Movie');
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $movies = $stmt->fetchAll();
-
 
             return $movies;
         } catch (PDOException $e) {
@@ -40,7 +38,7 @@ class MovieRepository extends Repository
             $stmt->bindValue(':filter', $filter);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Models\Movie');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Models|\Movie');
             $movies = $stmt->fetchAll();
 
             return $movies;

@@ -25,7 +25,8 @@ class MovieController extends Controller
         }
 
         $movies = $this->movieservice->getAll($offset, $limit);
-        $this->respond($movies);
+
+       $this->respond($movies);
     }
     public function showTop250Movies()
     {
